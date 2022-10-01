@@ -199,14 +199,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.001986237, y: 0.0013903655, z: 0.001986237, w: 0.9999951}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.227, y: 0.16, z: 0.228}
 --- !u!1 &1972450505
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,7 +219,6 @@ GameObject:
   - component: {fileID: 1972450508}
   - component: {fileID: 1972450507}
   - component: {fileID: 1972450506}
-  - component: {fileID: 1972450511}
   m_Layer: 0
   m_Name: Bird
   m_TagString: Untagged
@@ -237,9 +235,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1972450505}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 101f2ea55d65b7344b9a844045cccbff, type: 3}
+  m_Script: {fileID: 11500000, guid: e8b454c27eecac849adc6fc6072b321d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rigidbody2D: {fileID: 1972450508}
+  _speed: 2
+  _hightJump: 2
+  _minAngle: -45
+  _maxAngle: 45
+  _speedRotation: 45
 --- !u!58 &1972450507
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -318,7 +322,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 792231806, guid: e65c67ebae1099e419c3c56cbbe5757d, type: 3}
+  m_Sprite: {fileID: 4795072817625350032, guid: e65c67ebae1099e419c3c56cbbe5757d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -339,20 +343,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.9027989, y: 0.15667516, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1972450511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1972450505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67ff5048d7634ef49965092f915d4d2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -3,8 +3,12 @@ using UnityEngine;
 public class BirdMover : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D _rigidbody2D;
+    [SerializeField] private float _speed = 2;
     [SerializeField] private float _hightJump = 2;
-    private IEnumerator _RotatationEnumerator;
+    [SerializeField] private float _minAngle = -45f;
+    [SerializeField] private float _maxAngle = 45f;
+    [SerializeField] private float _speedRotation = 45f;
+
     public void Jump()
     {
         Vector2 currentSpeed = _rigidbody2D.velocity;
@@ -13,27 +17,18 @@ public class BirdMover : MonoBehaviour
         _rigidbody2D.AddForce(new Vector2(0, startSpeed * _rigidbody2D.mass), ForceMode2D.Impulse);
         Rotate();
     }
+    private void Awake()
+    {
+        _rigidbody2D.velocity = new Vector2();
+    }
+    private void Update()
+    {
+        _rigidbody2D.rotation = Mathf.Lerp(_rigidbody2D.rotation, _maxAngle, Time.deltaTime * _speedRotation);
+    }
+
     private void Rotate()
     {
-        int minAngle = -45;
-        int maxAngle = 45;
-        if (_RotatationEnumerator != null) 
-        {
-            StopCoroutine(_RotatationEnumerator);
-        }
-        _RotatationEnumerator = RotateBird(minAngle, maxAngle);
-        StartCoroutine(_RotatationEnumerator);
-    }
-    private IEnumerator RotateBird(int minAngle, int maxAngle)
-    {
-        float timeAnimation = 1f;
-        float timeOnFrame = timeAnimation / (maxAngle - minAngle);
-        WaitForSeconds wait = new WaitForSeconds(timeOnFrame);
-        for (int i = minAngle; i < maxAngle; i++)
-        {
-            _rigidbody2D.rotation = (float)i;
-            yield return wait;
-        }
+        _rigidbody2D.rotation = _minAngle;
     }
 }   
 
